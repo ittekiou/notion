@@ -1,10 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="Refresh" content="0; url=https://scented-spruce-382.notion.site/KOTONOHA-galaxy-201b4b68689180d7b41cfe7c9209f676" />
+    <meta charset="UTF-8" />
     <title>Redirecting...</title>
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const path = params.get("path");
+
+      const map = {
+        "kotonoha": "https://scented-spruce-382.notion.site/KOTONOHA-galaxy-201b4b68689180d7b41cfe7c9209f676",
+        "alog": "https://scented-spruce-382.notion.site/A-log-201b4b6868918060a221e34035f6140a",
+        "poet": "https://scented-spruce-382.notion.site/Galaxy-Poet-201b4b686891802888b6d0924f815e79",
+        "sansuitei": "https://nimble-backpack-6f8.notion.site/20381dd5e03280f18840d3c925363a50"
+      };
+
+      if (map[path]) {
+        window.location.href = map[path];
+      } else {
+        document.write("<h2>Not Found</h2><p>Unknown redirect key: " + path + "</p>");
+      }
+    </script>
   </head>
-  <body>
-    <p>Redirecting to <a href="https://scented-spruce-382.notion.site/KOTONOHA-galaxy-201b4b68689180d7b41cfe7c9209f676">Notion page</a>...</p>
-  </body>
+  <body></body>
 </html>
