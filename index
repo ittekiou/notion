@@ -1,33 +1,10 @@
 <!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8" />
-  <title>愛🌏URL❤️ リダイレクト</title>
-  <script>
-    // リダイレクトマップ
-    const redirectMap = {
-      "kotonoha": "https://scented-spruce-382.notion.site/KOTONOHA-galaxy-201b4b68689180d7b41cfe7c9209f676",
-      "alog": "https://scented-spruce-382.notion.site/A-log-201b4b6868918060a221e34035f6140a",
-      "galaxypoet": "https://scented-spruce-382.notion.site/Galaxy-Poet-201b4b686891802888b6d0924f815e79",
-      "sansuitei": "https://nimble-backpack-6f8.notion.site/20381dd5e03280f18840d3c925363a50"
-    };
-
-    function getQueryParam(name) {
-      const params = new URLSearchParams(window.location.search);
-      return params.get(name);
-    }
-
-    window.onload = () => {
-      const key = getQueryParam("path");
-      if (key && redirectMap[key]) {
-        window.location.href = redirectMap[key];
-      } else {
-        document.body.innerHTML = "<h1>リンクが見つかりません</h1><p>正しいリンクを指定してください。</p>";
-      }
-    };
-  </script>
-</head>
-<body>
-  <p>リダイレクト中...</p>
-</body>
+<html>
+  <head>
+    <meta http-equiv="Refresh" content="0; url=https://scented-spruce-382.notion.site/KOTONOHA-galaxy-201b4b68689180d7b41cfe7c9209f676" />
+    <title>Redirecting...</title>
+  </head>
+  <body>
+    <p>Redirecting to <a href="https://scented-spruce-382.notion.site/KOTONOHA-galaxy-201b4b68689180d7b41cfe7c9209f676">Notion page</a>...</p>
+  </body>
 </html>
