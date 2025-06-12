@@ -77,7 +77,7 @@ def post_to_notion():
         })
 
     block = {
-        "parent": {"page_id": NOTION_PAGE_ID},
+        "parent": {"database_id": NOTION_PAGE_ID},
         "properties": {
             "title": [{"type": "text", "text": {"content": title}}],
         },
