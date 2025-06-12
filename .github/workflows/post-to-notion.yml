@@ -21,7 +21,8 @@ jobs:
         run: pip install notion-client
 
       - name: Run post script
+        working-directory: eichoga_poster
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
           NOTION_PAGE_ID: ${{ secrets.NOTION_PAGE_ID }}
-        run: python eichoga_poster/post.py
+        run: python post.py
