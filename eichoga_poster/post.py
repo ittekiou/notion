@@ -24,12 +24,12 @@ def save_last_posted(filename):
     with open(LAST_POSTED_FILE, "w", encoding="utf-8") as f:
         f.write(filename)
 
-# === 最新JSONファイルを取得（更新日時で判定） ===
+# === 最新JSONファイルを取得（ファイル名で判定） ===
 def get_latest_json_file():
     files = [f for f in os.listdir(METADATA_DIR) if f.endswith(".json")]
     if not files:
         return None
-    files.sort(key=lambda f: os.path.getmtime(os.path.join(METADATA_DIR, f)))
+    files.sort()  # アルファベット順 → ISO日付で正しく並ぶ
     latest = files[-1]
     print(f"📄 最新のJSONファイル: {latest}")
     return latest
