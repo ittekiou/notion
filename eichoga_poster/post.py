@@ -13,11 +13,14 @@ LAST_POSTED_FILE = ".last_posted"
 
 notion = Client(auth=NOTION_TOKEN)
 
-def load_last_posted():
-    if os.path.exists(LAST_POSTED_FILE):
-        with open(LAST_POSTED_FILE, "r", encoding="utf-8") as f:
-            return f.read().strip()
-    return None
+def get_latest_json_file():
+    files = [f for f in os.listdir(METADATA_DIR) if f.endswith(".json")]
+    if not files:
+        return None
+    files.sort(key=lambda f: os.path.getmtime(os.path.join(METADATA_DIR, f)))
+    latest = files[-1]
+    print(f"📄 最新のJSONファイル: {latest}")
+    return latest
 
 def save_last_posted(filename):
     with open(LAST_POSTED_FILE, "w", encoding="utf-8") as f:
