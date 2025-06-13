@@ -13,6 +13,18 @@ LAST_POSTED_FILE = ".last_posted"
 
 notion = Client(auth=NOTION_TOKEN)
 
+# === 投稿済みファイルの読み書き ===
+def load_last_posted():
+    if os.path.exists(LAST_POSTED_FILE):
+        with open(LAST_POSTED_FILE, "r", encoding="utf-8") as f:
+            return f.read().strip()
+    return None
+
+def save_last_posted(filename):
+    with open(LAST_POSTED_FILE, "w", encoding="utf-8") as f:
+        f.write(filename)
+
+# === 最新JSONファイルを取得（更新日時で判定） ===
 def get_latest_json_file():
     files = [f for f in os.listdir(METADATA_DIR) if f.endswith(".json")]
     if not files:
@@ -22,28 +34,19 @@ def get_latest_json_file():
     print(f"📄 最新のJSONファイル: {latest}")
     return latest
 
-def save_last_posted(filename):
-    with open(LAST_POSTED_FILE, "w", encoding="utf-8") as f:
-        f.write(filename)
-
-def get_latest_json_file():
-    files = [f for f in os.listdir(METADATA_DIR) if f.endswith(".json")]
-    if not files:
-        return None
-    return sorted(files)[-1]  # アルファベット順で最新を選ぶ
-
+# === JSONメタデータの読み込み ===
 def load_metadata(filepath):
     with open(filepath, 'r', encoding="utf-8") as f:
         return json.load(f)
 
+# === Notionに貼る画像URLの構築 ===
 def build_image_url(json_filename, meta):
-    # 優先：JSONにimageフィールドがある場合
     if "image" in meta and meta["image"]:
         return f"{BASE_IMAGE_URL}/{meta['image'].split('/')[-1]}"
-    # なければファイル名から生成
     image_file = json_filename.replace(".json", ".png")
     return f"{BASE_IMAGE_URL}/{image_file}"
 
+# === Notion用の投稿データ構築 ===
 def create_notion_payload(meta, image_url):
     title = meta["title"]
     poem = meta["poem"]
@@ -91,6 +94,7 @@ def create_notion_payload(meta, image_url):
         "children": children
     }
 
+# === Notionへの投稿処理 ===
 def post_to_notion():
     json_file = get_latest_json_file()
     if not json_file:
@@ -113,5 +117,6 @@ def post_to_notion():
     except Exception as e:
         print(f"❌ Notionページ作成に失敗しました: {e}")
 
+# === 実行 ===
 if __name__ == "__main__":
     post_to_notion()
