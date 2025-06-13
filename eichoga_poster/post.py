@@ -7,6 +7,11 @@ NOTION_TOKEN = os.getenv("NOTION_TOKEN")
 NOTION_PAGE_ID = os.getenv("NOTION_PAGE_ID")
 
 # === 設定 ===
+# === 環境変数から認証情報を取得 ===
+NOTION_TOKEN = os.getenv("NOTION_TOKEN")
+NOTION_PAGE_ID = os.getenv("NOTION_PAGE_ID")
+
+# === 設定 ===
 BASE_IMAGE_URL = "https://ittekiou.github.io/notion/eichoga_poster/images"
 METADATA_DIR = "metadata"
 LAST_POSTED_FILE = ".last_posted"
@@ -17,10 +22,12 @@ notion = Client(auth=NOTION_TOKEN)
 def load_last_posted():
     if os.path.exists(LAST_POSTED_FILE):
         with open(LAST_POSTED_FILE, "r", encoding="utf-8") as f:
+        with open(LAST_POSTED_FILE, "r", encoding="utf-8") as f:
             return f.read().strip()
     return None
 
 def save_last_posted(filename):
+    with open(LAST_POSTED_FILE, "w", encoding="utf-8") as f:
     with open(LAST_POSTED_FILE, "w", encoding="utf-8") as f:
         f.write(filename)
 
@@ -59,6 +66,9 @@ def create_notion_payload(meta, image_url):
             "heading_1": {
                 "rich_text": [{"type": "text", "text": {"content": title}}]
             }
+            "heading_1": {
+                "rich_text": [{"type": "text", "text": {"content": title}}]
+            }
         },
         {
             "object": "block",
@@ -67,10 +77,16 @@ def create_notion_payload(meta, image_url):
                 "type": "external",
                 "external": {"url": image_url}
             }
+                "external": {"url": image_url}
+            }
         },
         {
             "object": "block",
             "type": "paragraph",
+            "paragraph": {
+                "rich_text": [{"type": "text", "text": {"content": poem}}]
+            }
+        }
             "paragraph": {
                 "rich_text": [{"type": "text", "text": {"content": poem}}]
             }
@@ -84,13 +100,19 @@ def create_notion_payload(meta, image_url):
             "paragraph": {
                 "rich_text": [{"type": "text", "text": {"content": memo}}]
             }
+            "paragraph": {
+                "rich_text": [{"type": "text", "text": {"content": memo}}]
+            }
         })
 
+    return {
     return {
         "parent": {"page_id": NOTION_PAGE_ID},
         "properties": {
             "title": [{"type": "text", "text": {"content": title}}]
+            "title": [{"type": "text", "text": {"content": title}}]
         },
+        "children": children
         "children": children
     }
 
@@ -114,7 +136,10 @@ def post_to_notion():
         notion.pages.create(**block)
         save_last_posted(json_file)
         print(f"✅ Notionページを作成しました: {meta['title']}")
+        save_last_posted(json_file)
+        print(f"✅ Notionページを作成しました: {meta['title']}")
     except Exception as e:
+        print(f"❌ Notionページ作成に失敗しました: {e}")
         print(f"❌ Notionページ作成に失敗しました: {e}")
 
 # === 実行 ===
