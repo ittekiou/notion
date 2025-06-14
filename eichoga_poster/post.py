@@ -34,6 +34,7 @@ def get_latest_json_file():
     print(f"📄 最新のJSONファイル: {latest}")
     return latest
 
+
 # === JSONメタデータの読み込み ===
 def load_metadata(filepath):
     with open(filepath, 'r', encoding="utf-8") as f:
