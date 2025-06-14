@@ -29,6 +29,7 @@ def get_latest_json_file():
     files = [f for f in os.listdir(METADATA_DIR) if f.endswith(".json")]
     if not files:
         return None
+<<<<<<< Updated upstream
     files.sort()  # アルファベット順 → ISO日付で正しく並ぶ
     latest = files[-1]
     print(f"📄 最新のJSONファイル: {latest}")
@@ -48,6 +49,22 @@ def build_image_url(json_filename, meta):
     return f"{BASE_IMAGE_URL}/{image_file}"
 
 # === Notion用の投稿データ構築 ===
+=======
+    return sorted(files)[-1]  # アルファベット順で最新を選ぶ
+
+def load_metadata(filepath):
+    with open(filepath, 'r', encoding="utf-8") as f:
+        return json.load(f)
+
+def build_image_url(json_filename, meta):
+    # 優先：JSONにimageフィールドがある場合
+    if "image" in meta and meta["image"]:
+        return f"{BASE_IMAGE_URL}/{meta['image'].split('/')[-1]}"
+    # なければファイル名から生成
+    image_file = json_filename.replace(".json", ".png")
+    return f"{BASE_IMAGE_URL}/{image_file}"
+
+>>>>>>> Stashed changes
 def create_notion_payload(meta, image_url):
     title = meta["title"]
     poem = meta["poem"]
@@ -95,7 +112,10 @@ def create_notion_payload(meta, image_url):
         "children": children
     }
 
+<<<<<<< Updated upstream
 # === Notionへの投稿処理 ===
+=======
+>>>>>>> Stashed changes
 def post_to_notion():
     json_file = get_latest_json_file()
     if not json_file:
