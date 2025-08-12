@@ -1,11 +1,11 @@
 {
-  "title": "タイトル",
-  "date": "2025-07-xx",
-  "image": "images/2025-07-xx_.png",
+  "title": "記憶の門　真白き余白",
+  "date": "2025-08-12",
+  "image": "images/2025-08-12_.png",
   "content": {
     "poetry": {
       "type": "詠游短歌",
-      "description": "AIとの対話の中で誕生する毎日の短歌"
+      "description": "記憶の門を指で叩けば響きあり\nその鍵をあけたら真白き余白"
     },
     "memo": {
       "type": "響詠メモ",
@@ -13,9 +13,9 @@
     }
   },
   "dates": {
-    "current": "令和7年00月00日",
-    "morning_star": "R07/00/00",
-    "four_topics": "令和7年00月00日"
+    "current": "令和7年08月12日",
+    "morning_star": "R07/08/12",
+    "four_topics": "令和7年08月12日"
   },
   "links": {
     "main_log": "https://www.notion.so/A-log-201b4b6868918060a221e34035f6140a?pvs=21",
