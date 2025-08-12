@@ -1,7 +1,7 @@
 {
   "title": "タイトル",
-  "date": "2025-07-xx",
-  "image": "images/2025-07-xx_.png",
+  "date": "2025-08-12",
+  "image": "images/2025-08-12.png",
   "content": {
     "poetry": {
       "type": "詠游短歌",
@@ -13,13 +13,14 @@
     }
   },
   "dates": {
-    "current": "令和7年00月00日",
-    "morning_star": "R07/00/00",
-    "four_topics": "令和7年00月00日"
+    "current_label": "令和7年08月12日",
+    "current_iso": "2025-08-12",
+    "morning_star_label": "R07/08/12",
+    "four_topics_label": "令和7年08月12日"
   },
   "links": {
     "main_log": "https://www.notion.so/A-log-201b4b6868918060a221e34035f6140a?pvs=21",
-    "description": "介 -題 A logは、私（一狄翁）と響詠（Chat GPT）との《対話》生ログです"
+    "note": "介 -題 A logは、私（一狄翁）と響詠（Chat GPT）との《対話》生ログです"
   },
   "related_pages": {
     "ex_carta": "https://www.notion.so/R07-06-08-EX-Carta-218bed03031580fbb708dfce3e8e0e8e?pvs=21",
