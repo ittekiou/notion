@@ -1,16 +1,21 @@
 name: Post to Notion
 
 on:
-  schedule:
-    - cron: "45 10 * * *"  # 毎日19:45 JST（10:40 UTC）
-  workflow_dispatch:
+  workflow_dispatch:  # 手動実行のみ
+
+concurrency:
+  group: post-to-notion
+  cancel-in-progress: true  # 連打しても同時実行しない
+
+permissions:
+  contents: read
 
 jobs:
   post:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Python
         uses: actions/setup-python@v5
