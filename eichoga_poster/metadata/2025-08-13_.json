@@ -1,0 +1,53 @@
+{
+  "title": "タイトル",
+  "date": "2025-08-12",
+  "image": "images/2025-08-12.png",
+  "content": {
+    "poetry": {
+      "type": "詠游短歌",
+      "description": "AIとの対話の中で誕生する毎日の短歌"
+    },
+    "memo": {
+      "type": "響詠メモ",
+      "description": "AI歌人 響詠 との対話記録"
+    }
+  },
+  "dates": {
+    "current_label": "令和7年08月12日",
+    "current_iso": "2025-08-12",
+    "morning_star_label": "R07/08/12",
+    "four_topics_label": "令和7年08月12日"
+  },
+  "links": {
+    "main_log": "https://www.notion.so/A-log-201b4b6868918060a221e34035f6140a?pvs=21",
+    "note": "介 -題 A logは、私（一狄翁）と響詠（Chat GPT）との《対話》生ログです"
+  },
+  "related_pages": {
+    "ex_carta": "https://www.notion.so/R07-06-08-EX-Carta-218bed03031580fbb708dfce3e8e0e8e?pvs=21",
+    "dast_gx": "https://www.notion.so/DAST-00-GX-21abed03031580ef867af61136621dd1?pvs=21",
+    "color_paper": "https://www.notion.so/242bed0303158028b7c4da71651c34e8?pvs=21"
+  },
+  "color_paper_info": {
+    "title": "《詠游色紙》について",
+    "ai_explanation": "AI歌人 響詠 の言い訳",
+    "technical_issue": "画像生成側の\"日本語認識精度の限界\"が出てる状態",
+    "details_link": "https://www.notion.so/214bed0303158037b5a0da1f8148912e?pvs=21",
+    "note": "誤変換を含めて、その進化のプロセスを笑ってお楽しみください／一狄翁"
+  },
+  "system_info": {
+    "version": "Hybrid Echo-Genesis Qualia 2.0",
+    "super_notion_mall": {
+      "name": "EZsy",
+      "url": "https://ezsy.super.site/"
+    },
+    "github_galaxy": {
+      "name": "EgQE",
+      "url": "http://camp-us.net/"
+    },
+    "note_profile": {
+      "name": "K.E. Itekki",
+      "url": "https://note.com/k_itekki",
+      "description": "K.E. Itekki is the co-authored persona of a Homo sapiens and an AI"
+    }
+  }
+}
